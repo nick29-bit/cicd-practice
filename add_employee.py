@@ -8,8 +8,11 @@ from openpyxl import load_workbook
 file = Path("/Users/Nick/CI:CD/employees.xlsx")
 
 # Parameters entered in Jenkins
-name = os.environ["EMPLOYEE_NAME"].strip()
-department = os.environ["DEPARTMENT"].strip()
+name = os.environ.get("EMPLOYEE_NAME", os.environ.get("NAME", "")).strip()
+department = os.environ.get("DEPARTMENT", os.environ.get("DEPT", "")).strip()
+
+if not name or not department:
+    raise ValueError("Employee name or department parameter is missing")
 
 if not name:
     raise ValueError("Employee name cannot be empty")
