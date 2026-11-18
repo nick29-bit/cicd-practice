@@ -1,6 +1,7 @@
-venv/
+employees.xlsx
+employees_updated.xlsx
+~$*.xlsx
+employees_backup_build_*.xlsx
+.DS_Store
 .venv/
 __pycache__/
-*.pyc
-.DS_Store
-employees_updated.xlsx
