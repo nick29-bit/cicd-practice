@@ -5,7 +5,7 @@ from pathlib import Path
 from openpyxl import load_workbook
 
 # Existing local Excel workbook
-file = Path("/Users/Nick/CI:CD/employees.xlsx")
+file = Path(__file__).resolve().parent / "employees.xlsx"
 
 # Parameters entered in Jenkins
 name = os.environ.get("EMPLOYEE_NAME", os.environ.get("NAME", "")).strip()
